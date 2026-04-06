@@ -10,6 +10,7 @@ env:
   PROJECT_NAME: "LyraStarterProject" # Update with project name
   UNREAL_ENGINE_VERSION: "5.6" # Update with Unreal Engine version
   AMI_ID: "ami-1234567890" # Update with AMI ID for Unreal Engine version
+  BUCKET_NAME: "lyra-starter-project-builds"
   INSTANCE_TYPE: "z1d.2xlarge" # Set instance type to match AMI
   IAM_ROLE: "arn:aws:iam::123456789:role/BuildRole" # Update with IAM role for build
   IAM_FLEET_ROLE: "arn:aws:iam::123456789:role/aws-service-role/spotfleet.amazonaws.com/AWSServiceRoleForEC2SpotFleet" # Update with IAM role for fleet
@@ -64,7 +65,7 @@ jobs:
       - name: Copy files to S3 bucket
         shell: powershell
         run: |
-          aws s3 cp ${{ github.workspace }}/${{ env.PROJECT_NAME }}-${{ github.ref_name }}.zip s3://downloads.sawnoffstudios.com/${{ env.PROJECT_NAME }}-${{ github.ref_name }}.zip
+          aws s3 cp ${{ github.workspace }}/${{ env.PROJECT_NAME }}-${{ github.ref_name }}.zip s3://${{ env.BUCKET_NAME }}/${{ env.PROJECT_NAME }}-${{ github.ref_name }}.zip
 
   StopEC2Instance:
     runs-on: ubuntu-latest
