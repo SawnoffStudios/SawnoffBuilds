@@ -15,6 +15,7 @@ Parameters:
 Resources:
   EC2SpotFleet:
     Type: AWS::EC2::SpotFleet
+    DeletionPolicy: Delete
     Properties:
       SpotFleetRequestConfigData:
         TargetCapacity: 1
@@ -27,6 +28,7 @@ Resources:
 
   EC2LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
+    DeletionPolicy: Delete
     Properties:
       LaunchTemplateData:
         ImageId: !Ref AmiId
