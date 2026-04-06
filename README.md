@@ -52,7 +52,8 @@
                 "ec2:DescribeInstances",
                 "ec2:StartInstances",
                 "ec2:StopInstances",
-                "ec2:DescribeSpotFleetRequests"
+                "ec2:DescribeSpotFleetRequests",
+                "ec2:CancelSpotFleetRequests"
             ],
             "Resource": "*"
         },
