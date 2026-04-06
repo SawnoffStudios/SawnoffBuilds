@@ -1,20 +1,29 @@
 # Unreal Build Server
 
-## Installs required:
+## Files
+
+- [build-project.yml](build-project.yml) – GitHub Actions build script for Unreal Engine projects
+- [infra-build.yml](infra-build.yml) – Infrastructure build script for EC2 Spot Fleet
+
+## Tools required:
 
 1. [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)
 2. [Git for Windows](https://git-scm.com/install/windows)
-3. [Git LFS for Windows](https://git-lfs.com/
+3. [Git LFS for Windows](https://git-lfs.com/)
 4. [Epic Games Launcher](https://store.epicgames.com/en-US/download)
 5. [Unreal Engine](https://www.unrealengine.com/) (from Launcher)
-5. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-6. [GitHub Self-Hosted Runner](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/add-runners)
+6. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
-## Updates required:
+## Usage
 
+- Create EC2 instance with required tools
 - Open Services.msc and open "GitHub Actions Runner Service"
 - Update service to Run as Administrator
 - Save changes and restart service
+- Run commands for [GitHub self-hosted runner](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/add-runners)
+- Create AMI from EC2 instance
+- Create GitHub Actions workflow for your project
+- Ensure tags used in `runs-on` match GitHub Actions runner name
 
 ## Required IAM policy:
 
