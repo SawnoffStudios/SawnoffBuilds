@@ -38,3 +38,9 @@ Resources:
           SpotOptions:
             SpotInstanceType: one-time
             InstanceInterruptionBehavior: terminate
+        BlockDeviceMappings:
+          - DeviceName: /dev/sda1
+            Ebs:
+              VolumeSize: 250
+              VolumeType: gp3
+              DeleteOnTermination: true
