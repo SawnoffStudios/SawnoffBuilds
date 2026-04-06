@@ -3,7 +3,7 @@
 ## Files
 
 - [build-project.yml](build-project.yml) – GitHub Actions build script for Unreal Engine projects
-- [infra-build.yml](infra-build.yml) – Infrastructure build script for EC2 Spot Fleet
+- [infra-build.yml](infra-build.yml) – CloudFormation template for EC2 Spot Fleet
 
 ## Tools required:
 
